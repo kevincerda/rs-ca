@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 export default class App extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      locationData: []
+    };
     this.fetchLocationData = this.fetchLocationData.bind(this);
   }
 
@@ -18,7 +20,7 @@ export default class App extends Component {
         return response.json();
       })
       .then(data => {
-        console.log(data);
+        this.setState({ locationData: [...this.state.locationData, ...data] });
       })
       .catch(error => {
         console.error(`Error fetching data ${error}`);
