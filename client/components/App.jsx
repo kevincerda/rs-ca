@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar.jsx';
+import ListItem from './ListItem.jsx';
 
 export default class App extends Component {
   constructor() {
@@ -32,10 +33,12 @@ export default class App extends Component {
     return (
       <div>
         <NavBar />
-        <section className="container" id="main-view">
-          <div className="row">
-            <div className="col-6">left</div>
-            <div className="col-6">right</div>
+        <section className="container-fluid" id="main-view">
+          <div className="row" id="columns">
+            <ListItem data={this.state.locationData} />
+            <div className="col-7" id="map">
+              Click a location card to load a map
+            </div>
           </div>
         </section>
       </div>
