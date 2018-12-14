@@ -32,6 +32,12 @@ export default class App extends Component {
     return (
       <div>
         <NavBar />
+        <section className="container" id="main-view">
+          <div className="row">
+            <div className="col-6">left</div>
+            <div className="col-6">right</div>
+          </div>
+        </section>
       </div>
     );
   }
