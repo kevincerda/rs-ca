@@ -8,6 +8,9 @@ const ListItem = props => {
           <div className="col-6">{truck.name}</div>
           <div className="col-6">0.5 mi</div>
           <div className="col-12">{truck.address}</div>
+          <div className="col-12">
+            {truck.city}, {truck.state} {truck.postal_code}
+          </div>
           <div className="col-12">Open until 9pm</div>
           <div className="col-12">123-456-7890</div>
         </div>
