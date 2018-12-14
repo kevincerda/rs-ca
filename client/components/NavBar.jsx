@@ -2,7 +2,7 @@ import React from 'react';
 import Logo from '../../assets/rioseo-logo.png';
 
 const NavBar = props => (
-  <nav className="navbar navbar-expand-lg navbar-light">
+  <nav className="navbar navbar-expand-lg navbar-light" id="navbar">
     <div className="container">
       <a href="/" className="navbar-brand">
         <img src={Logo} />
