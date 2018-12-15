@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar.jsx';
 import ListItem from './ListItem.jsx';
+import MapView from './MapView.jsx';
+import { googleAPIKey } from '../../credentials.json';
 
 export default class App extends Component {
   constructor() {
@@ -37,7 +39,13 @@ export default class App extends Component {
           <div className="row" id="columns">
             <ListItem data={this.state.locationData} />
             <div className="col-7" id="map">
-              Click a location card to load a map
+              <MapView
+                isMarkerShown
+                googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${googleAPIKey}`}
+                loadingElement={<div style={{ height: `100%` }} />}
+                containerElement={<div style={{ height: `100%` }} />}
+                mapElement={<div style={{ height: `100%` }} />}
+              />
             </div>
           </div>
         </section>
