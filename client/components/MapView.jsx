@@ -1,21 +1,11 @@
 import React from 'react';
-import {
-  GoogleMap,
-  Marker,
-  withGoogleMap,
-  withScriptjs
-} from 'react-google-maps';
 
-const MapView = withScriptjs(
-  withGoogleMap(props => (
-    <section className="" id="map">
-      <GoogleMap defaultZoom={8} defaultCenter={{ lat: -34.397, lng: 150.644 }}>
-        {props.isMarkerShown && (
-          <Marker position={{ lat: -34.397, lng: 150.644 }} />
-        )}
-      </GoogleMap>
-    </section>
-  ))
+const MapView = props => (
+  <img
+    src={`https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap
+  &markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318
+  &markers=color:red%7Clabel:C%7C40.718217,-73.998284 &key=${props.API_KEY}`}
+  />
 );
 
 export default MapView;

@@ -8,7 +8,10 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      locationData: []
+      locationData: [],
+      mapConfig: {
+        URL: 'https://maps.googleapis.com/maps/api/staticmap?'
+      }
     };
     this.fetchLocationData = this.fetchLocationData.bind(this);
   }
@@ -39,13 +42,7 @@ export default class App extends Component {
           <div className="row" id="columns">
             <ListItem data={this.state.locationData} />
             <div className="col-7" id="map">
-              <MapView
-                isMarkerShown
-                googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${googleAPIKey}`}
-                loadingElement={<div style={{ height: `100%` }} />}
-                containerElement={<div style={{ height: `100%` }} />}
-                mapElement={<div style={{ height: `100%` }} />}
-              />
+              <MapView API_KEY={googleAPIKey} />
             </div>
           </div>
         </section>
