@@ -9,6 +9,7 @@ export default class App extends Component {
     super();
     this.state = {
       activeItem: undefined,
+      activeItemData: undefined,
       detailsActive: false,
       markerLatitude: undefined,
       markerLongitude: undefined,
@@ -51,7 +52,7 @@ export default class App extends Component {
     const truckData = this.state.locationData.find(
       truck => truck.id === selectedTruck
     );
-    this.setState({ activeItem: truckData, detailsActive: true });
+    this.setState({ activeItemData: truckData, detailsActive: true });
   }
 
   setMapMarker(latitude, longitude) {
@@ -74,6 +75,8 @@ export default class App extends Component {
               API_KEY={googleAPIKey}
               markerLongitude={this.state.markerLongitude}
               markerLatitude={this.state.markerLatitude}
+              activeItem={this.state.activeItem}
+              activeItemData={this.state.activeItemData}
               detailsActive={this.state.detailsActive}
             />
           </div>

@@ -7,7 +7,10 @@ const MapView = props => {
   return (
     <div className="col-7" id="map">
       <div className="row" id="pop-up">
-        <DetailsCard detailsActive={props.detailsActive} />
+        <DetailsCard
+          detailsActive={props.detailsActive}
+          activeItemData={props.activeItemData}
+        />
         <div className="col-12">
           {props.markerLongitude && props.markerLatitude ? (
             <Map
