@@ -8,10 +8,13 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      markerLocation: undefined,
+      markerLatitude: undefined,
+      markerLongitude: undefined,
       locationData: []
     };
     this.fetchLocationData = this.fetchLocationData.bind(this);
+    this.handleItemClick = this.handleItemClick.bind(this);
+    this.setMapMarker = this.setMapMarker.bind(this);
   }
 
   componentDidMount() {
@@ -32,16 +35,30 @@ export default class App extends Component {
       });
   }
 
+  handleItemClick(e) {
+    const latitude = e.currentTarget.dataset.latitude;
+    const longitude = e.currentTarget.dataset.longitude;
+    this.setMapMarker(latitude, longitude);
+  }
+
+  setMapMarker(latitude, longitude) {
+    this.setState({ markerLatitude: latitude, markerLongitude: longitude });
+  }
+
   render() {
     return (
       <div>
         <NavBar />
         <section className="container" id="main-view">
           <div className="row" id="columns">
-            <ListItem data={this.state.locationData} />
+            <ListItem
+              data={this.state.locationData}
+              handleItemClick={this.handleItemClick}
+            />
             <MapView
               API_KEY={googleAPIKey}
-              markerLocation={this.state.markerLocation}
+              markerLongitude={this.state.markerLongitude}
+              markerLatitude={this.state.markerLatitude}
             />
           </div>
         </section>
