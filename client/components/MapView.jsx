@@ -1,11 +1,16 @@
 import React from 'react';
 
 const MapView = props => (
-  <img
-    src={`https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap
-  &markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318
-  &markers=color:red%7Clabel:C%7C40.718217,-73.998284 &key=${props.API_KEY}`}
-  />
+  <div className="col-7" id="map">
+    {props.markerLocation ? (
+      <img
+        src={`https://maps.googleapis.com/maps/api/staticmap?center=San+Diego&zoom=14&scale=2&size=640x640&maptype=roadmap&key=AIzaSyBFAvSGyst2wHNOdBC2TXagOQ6m3uCqc_0&format=png&visual_refresh=true`}
+        id="map"
+      />
+    ) : (
+      'Click a location to load a map'
+    )}
+  </div>
 );
 
 export default MapView;
