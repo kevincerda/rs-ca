@@ -2,13 +2,13 @@
 /// Default & Reset Styles ///
 *****************************/
 
-.container {
-  min-width: 1500px;
-}
-
 #navbar {
   height: 6vh;
   border-bottom: 1px solid rgb(228, 228, 228) !important;
+}
+
+.container {
+  min-width: 1500px;
 }
 
 /*****************************
