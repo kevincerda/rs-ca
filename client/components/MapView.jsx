@@ -6,10 +6,8 @@ import DetailsCard from './DetailsCard.jsx';
 const MapView = props => {
   return (
     <div className="col-7" id="map">
-      <div className="row">
-        <div className="col-8 offset-2" id="details-card">
-          <DetailsCard detailsActive={props.detailsActive} />
-        </div>
+      <div className="row" id="pop-up">
+        <DetailsCard detailsActive={props.detailsActive} />
         <div className="col-12">
           {props.markerLongitude && props.markerLatitude ? (
             <Map

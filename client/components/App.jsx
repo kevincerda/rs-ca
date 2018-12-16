@@ -8,8 +8,8 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      activeItem: '',
-      detailsActive: true,
+      activeItem: undefined,
+      detailsActive: false,
       markerLatitude: undefined,
       markerLongitude: undefined,
       locationData: []
@@ -47,8 +47,11 @@ export default class App extends Component {
   }
 
   handleMoreInfoClick(e) {
-    const selectedTruck = e.currentTarget.dataset.truck;
-    console.log(selectedTruck);
+    const selectedTruck = parseInt(e.currentTarget.dataset.truck);
+    const truckData = this.state.locationData.find(
+      truck => truck.id === selectedTruck
+    );
+    this.setState({ activeItem: truckData, detailsActive: true });
   }
 
   setMapMarker(latitude, longitude) {
