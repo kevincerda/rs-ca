@@ -1,1 +1,50 @@
-/* CUSTOM STYLES HERE */
+/*****************************
+/// Default & Reset Styles ///
+*****************************/
+
+.container {
+  min-width: 1500px;
+}
+
+#navbar {
+  height: 6vh;
+  border-bottom: 1px solid rgb(228, 228, 228) !important;
+}
+
+/*****************************
+//////// VIEW STYLES  ////////
+*****************************/
+
+#main-view {
+  height: 94vh;
+}
+
+#columns {
+  height: 100%;
+}
+
+/*****************************
+/////// RESULTS STYLES  //////
+*****************************/
+
+#map {
+  padding: 0 !important;
+  background-color: #e3e3e3;
+}
+
+#list {
+  padding: 25px;
+  overflow-y: scroll;
+  background-color: #eeefef;
+}
+
+.result-item {
+  height: 300px;
+  display: flex;
+  align-content: space-around;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #dfe0e4;
+  border-radius: 2px;
+  background-color: #ffffff;
+}
