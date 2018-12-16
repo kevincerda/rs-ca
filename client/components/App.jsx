@@ -9,12 +9,14 @@ export default class App extends Component {
     super();
     this.state = {
       activeItem: '',
+      detailsActive: true,
       markerLatitude: undefined,
       markerLongitude: undefined,
       locationData: []
     };
     this.fetchLocationData = this.fetchLocationData.bind(this);
     this.handleItemClick = this.handleItemClick.bind(this);
+    this.handleMoreInfoClick = this.handleMoreInfoClick.bind(this);
     this.setMapMarker = this.setMapMarker.bind(this);
   }
 
@@ -44,6 +46,11 @@ export default class App extends Component {
     this.setMapMarker(latitude, longitude);
   }
 
+  handleMoreInfoClick(e) {
+    const selectedTruck = e.currentTarget.dataset.truck;
+    console.log(selectedTruck);
+  }
+
   setMapMarker(latitude, longitude) {
     this.setState({ markerLatitude: latitude, markerLongitude: longitude });
   }
@@ -57,12 +64,14 @@ export default class App extends Component {
             <ListItem
               data={this.state.locationData}
               handleItemClick={this.handleItemClick}
+              handleMoreInfoClick={this.handleMoreInfoClick}
               activeItem={this.state.activeItem}
             />
             <MapView
               API_KEY={googleAPIKey}
               markerLongitude={this.state.markerLongitude}
               markerLatitude={this.state.markerLatitude}
+              detailsActive={this.state.detailsActive}
             />
           </div>
         </section>

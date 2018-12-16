@@ -13,14 +13,13 @@ const ListItem = props => {
         data-id={truck.id}
         data-latitude={truck.latitude}
         data-longitude={truck.longitude}
-        onClick={props.handleItemClick}
+        // onClick={props.handleItemClick}
       >
         <div className="row">
           <div className="col-6">{truck.name}</div>
           <div className="col-6">0.5 mi</div>
-          <div className="col-12">{truck.address}</div>
           <div className="col-12">
-            {truck.city}, {truck.state} {truck.postal_code}
+            {truck.address} {truck.city}, {truck.state} {truck.postal_code}
           </div>
           <div className="col-12">Open until {}</div>
           <div className="col-12">123-456-7890</div>
@@ -30,7 +29,12 @@ const ListItem = props => {
             </button>
           </div>
           <div className="col-6">
-            <button type="button" className="btn btn-dark btn-block">
+            <button
+              type="button"
+              className="btn btn-dark btn-block"
+              data-truck={truck.id}
+              onClick={props.handleMoreInfoClick}
+            >
               More Info
             </button>
           </div>
@@ -43,7 +47,7 @@ const ListItem = props => {
       <div className="row">
         <div className="col-12">
           <blockquote className="blockquote text-center">
-            <h5>Found {props.data.length} Taco Trucks Near You</h5>
+            <h5>Displaying {props.data.length} Results</h5>
           </blockquote>
         </div>
       </div>
