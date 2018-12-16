@@ -8,6 +8,7 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
+      activeItem: '',
       markerLatitude: undefined,
       markerLongitude: undefined,
       locationData: []
@@ -36,8 +37,10 @@ export default class App extends Component {
   }
 
   handleItemClick(e) {
+    const truckId = e.currentTarget.dataset.id;
     const latitude = e.currentTarget.dataset.latitude;
     const longitude = e.currentTarget.dataset.longitude;
+    this.setState({ activeItem: truckId });
     this.setMapMarker(latitude, longitude);
   }
 
@@ -54,6 +57,7 @@ export default class App extends Component {
             <ListItem
               data={this.state.locationData}
               handleItemClick={this.handleItemClick}
+              activeItem={this.state.activeItem}
             />
             <MapView
               API_KEY={googleAPIKey}
