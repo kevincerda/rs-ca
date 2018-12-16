@@ -1,29 +1,34 @@
 import React from 'react';
+import Map from './Map.jsx';
 import Icon from '../../assets/map-pin.png';
+import DetailsCard from './DetailsCard.jsx';
 
 const MapView = props => {
-  const googleURL = 'https://maps.googleapis.com/maps/api/staticmap?';
-  const mapSize = 'size=640x640';
-  const mapScale = 'scale=2';
-  const mapZoom = 'zoom=13';
-  const mapFormat = 'format=png';
-  const mapType = 'type=roadmap';
-  const markerIcon = Icon;
-
   return (
     <div className="col-7" id="map">
-      {props.markerLongitude && props.markerLatitude ? (
-        <img
-          src={`
-        ${googleURL}&${mapSize}&${mapScale}&${mapZoom}&${mapFormat}&${mapType}&markers=${
-            props.markerLatitude
-          },${props.markerLongitude}&key=${props.API_KEY}
-        `}
-          id="map"
-        />
-      ) : (
-        'Click a location to load a map'
-      )}
+      <div className="row">
+        <div className="col-8 offset-2" id="details-card">
+          <DetailsCard detailsActive={props.detailsActive} />
+        </div>
+        <div className="col-12">
+          {props.markerLongitude && props.markerLatitude ? (
+            <Map
+              googleURL={'https://maps.googleapis.com/maps/api/staticmap?'}
+              mapSize={'size=500x650'}
+              mapScale={'scale=2'}
+              mapZoom={'zoom=13'}
+              mapFormat={'format=png'}
+              mapType={'type=roadmap'}
+              markerIcon={Icon}
+              markerLatitude={props.markerLatitude}
+              markerLongitude={props.markerLongitude}
+              API_KEY={props.API_KEY}
+            />
+          ) : (
+            'Click a location to load a map'
+          )}
+        </div>
+      </div>
     </div>
   );
 };
