@@ -8,6 +8,5 @@ import App from './components/App.jsx';
 // Stylesheets
 import '../public/styles/styles.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
 
 render(<App />, document.getElementById('root'));

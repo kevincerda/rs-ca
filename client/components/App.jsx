@@ -34,7 +34,8 @@ class App extends Component {
         markerLongitude: undefined,
         API_KEY: googleAPIKey
       },
-      activeComponent: 'ListView'
+      activeComponent: 'ListView',
+      activeButtonMobile: 'ListView'
     };
     this.fetchLocationData = this.fetchLocationData.bind(this);
     this.handleItemClick = this.handleItemClick.bind(this);
@@ -85,7 +86,11 @@ class App extends Component {
       truck => truck.id === selectedTruck
     );
     this.setState({ activeItemData: truckData, detailsActive: true });
-    this.props.isTablet() && this.setState({ activeComponent: 'MapView' });
+    this.props.isTablet() &&
+      this.setState({
+        activeComponent: 'MapView',
+        activeButtonMobile: 'MapView'
+      });
   }
 
   handleExitClick() {
@@ -136,7 +141,7 @@ class App extends Component {
   handleMobileButtonToggle(e) {
     e.preventDefault();
     const view = e.currentTarget.dataset.view;
-    this.setState({ activeComponent: view });
+    this.setState({ activeComponent: view, activeButtonMobile: view });
   }
 
   render() {
@@ -149,7 +154,10 @@ class App extends Component {
               {this.renderComponent()}
             </div>
           </section>
-          <Footer handleMobileButtonToggle={this.handleMobileButtonToggle} />
+          <Footer
+            handleMobileButtonToggle={this.handleMobileButtonToggle}
+            activeButtonMobile={this.state.activeButtonMobile}
+          />
         </div>
       );
     }

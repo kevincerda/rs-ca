@@ -4,13 +4,33 @@ const Footer = props => (
   <footer className="footer d-lg-none">
     <div className="container-fluid">
       <div className="row">
-        <div className="col-6 footer-tab tab-active">
-          <button onClick={props.handleMobileButtonToggle} data-view="ListView">
+        <div
+          className={
+            props.activeButtonMobile === 'ListView'
+              ? 'col-6 footer-tab tab-active'
+              : 'col-6 footer-tab'
+          }
+        >
+          <button
+            className="btn-mobile"
+            onClick={props.handleMobileButtonToggle}
+            data-view="ListView"
+          >
             List
           </button>
         </div>
-        <div className="col-6 footer-tab">
-          <button onClick={props.handleMobileButtonToggle} data-view="MapView">
+        <div
+          className={
+            props.activeButtonMobile === 'MapView'
+              ? 'col-6 footer-tab tab-active'
+              : 'col-6 footer-tab'
+          }
+        >
+          <button
+            className="btn-mobile"
+            onClick={props.handleMobileButtonToggle}
+            data-view="MapView"
+          >
             Map
           </button>
         </div>

@@ -1,11 +1,11 @@
 import React from 'react';
 
 const ListItem = props => {
-  const transformedData = props.data.map((truck, index) => {
+  const transformedData = props.data.map(truck => {
     return (
       <div
         className={
-          props.activeItem === truck.id
+          props.activeItem == truck.id
             ? 'col-10 offset-1 result-item active-item'
             : 'col-10 offset-1 result-item'
         }

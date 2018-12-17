@@ -15,8 +15,10 @@ const DetailsCard = props => {
   return props.detailsActive ? (
     <div className="col-8" id="popup-wrapper">
       <div className="row">
-        <div className="col-12 text-right">
-          <button onClick={props.handleExitClick}>X</button>
+        <div className="col-1 offset-11 ">
+          <button className="btn-mobile" onClick={props.handleExitClick}>
+            <span className="title text-right">X</span>
+          </button>
         </div>
         <div className="col-12" id="img-placeholder" />
         <div className="col-12">
