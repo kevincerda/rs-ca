@@ -31,7 +31,6 @@ class App extends Component {
     this.handleMoreInfoClick = this.handleMoreInfoClick.bind(this);
     this.handleExitClick = this.handleExitClick.bind(this);
     this.setMapMarker = this.setMapMarker.bind(this);
-    this.setWeekDay = this.setWeekDay.bind(this);
     this.renderComponent = this.renderComponent.bind(this);
     this.handleMobileButtonToggle = this.handleMobileButtonToggle.bind(this);
   }
@@ -86,11 +85,6 @@ class App extends Component {
 
   setMapMarker(latitude, longitude) {
     this.setState({ markerLatitude: latitude, markerLongitude: longitude });
-  }
-
-  setWeekDay() {
-    const weekday = new Date().getDay().toString();
-    this.setState({ weekday: weekday });
   }
 
   renderComponent() {
