@@ -9,6 +9,7 @@ import MapView from './MapView.jsx';
 import Footer from './Footer.jsx';
 // Assets
 import PhoneIcon from '../../assets/phone-icon.png';
+import DirectionsIcon from '../../assets/direction-icon.png';
 
 class App extends Component {
   constructor() {
@@ -84,6 +85,7 @@ class App extends Component {
       truck => truck.id === selectedTruck
     );
     this.setState({ activeItemData: truckData, detailsActive: true });
+    this.props.isTablet() && this.setState({ activeComponent: 'MapView' });
   }
 
   handleExitClick() {
@@ -122,7 +124,10 @@ class App extends Component {
             activeItemData={this.state.activeItemData}
             detailsActive={this.state.detailsActive}
             handleExitClick={this.handleExitClick}
+            handleDirectionsClick={this.handleDirectionsClick}
             weekday={this.state.weekday}
+            PhoneIcon={PhoneIcon}
+            DirectionsIcon={DirectionsIcon}
           />
         );
     }
@@ -169,7 +174,10 @@ class App extends Component {
               activeItemData={this.state.activeItemData}
               detailsActive={this.state.detailsActive}
               handleExitClick={this.handleExitClick}
+              handleDirectionsClick={this.handleDirectionsClick}
               weekday={this.state.weekday}
+              PhoneIcon={PhoneIcon}
+              DirectionsIcon={DirectionsIcon}
             />
           </div>
         </section>
