@@ -52,7 +52,10 @@ export default class App extends Component {
     this.setMapMarker(latitude, longitude);
   }
 
-  handleDirectionsClick() {}
+  handleDirectionsClick(latitude, longitude) {
+    const googleURL = 'https://www.google.com/maps/dir/?api=1';
+    return `${googleURL}&destination=${latitude},${longitude}`;
+  }
 
   handleMoreInfoClick(e) {
     const selectedTruck = parseInt(e.currentTarget.dataset.truck);
