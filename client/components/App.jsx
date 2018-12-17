@@ -19,6 +19,7 @@ export default class App extends Component {
     this.fetchLocationData = this.fetchLocationData.bind(this);
     this.handleItemClick = this.handleItemClick.bind(this);
     this.handleMoreInfoClick = this.handleMoreInfoClick.bind(this);
+    this.handleExitClick = this.handleExitClick.bind(this);
     this.setMapMarker = this.setMapMarker.bind(this);
     this.setWeekDay;
   }
@@ -58,6 +59,10 @@ export default class App extends Component {
     this.setState({ activeItemData: truckData, detailsActive: true });
   }
 
+  handleExitClick() {
+    this.setState({ detailsActive: false });
+  }
+
   setMapMarker(latitude, longitude) {
     this.setState({ markerLatitude: latitude, markerLongitude: longitude });
   }
@@ -86,6 +91,7 @@ export default class App extends Component {
               activeItem={this.state.activeItem}
               activeItemData={this.state.activeItemData}
               detailsActive={this.state.detailsActive}
+              handleExitClick={this.handleExitClick}
               weekday={this.state.weekday}
             />
           </div>

@@ -5,17 +5,19 @@ import DetailsCard from './DetailsCard.jsx';
 
 const MapView = props => {
   return (
-    <div className="col-7" id="map">
+    <div className="col-7 d-none d-md-block" id="map">
       <div className="row" id="pop-up">
         <DetailsCard
           detailsActive={props.detailsActive}
           activeItemData={props.activeItemData}
+          weekday={props.weekday}
+          handleExitClick={props.handleExitClick}
         />
         <div className="col-12">
           {props.markerLongitude && props.markerLatitude ? (
             <Map
               googleURL={'https://maps.googleapis.com/maps/api/staticmap?'}
-              mapSize={'size=500x650'}
+              mapSize={'size=465x650'}
               mapScale={'scale=2'}
               mapZoom={'zoom=13'}
               mapFormat={'format=png'}
