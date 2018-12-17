@@ -18,6 +18,7 @@ export default class App extends Component {
     };
     this.fetchLocationData = this.fetchLocationData.bind(this);
     this.handleItemClick = this.handleItemClick.bind(this);
+    this.handleDirectionsClick = this.handleDirectionsClick.bind(this);
     this.handleMoreInfoClick = this.handleMoreInfoClick.bind(this);
     this.handleExitClick = this.handleExitClick.bind(this);
     this.setMapMarker = this.setMapMarker.bind(this);
@@ -51,6 +52,8 @@ export default class App extends Component {
     this.setMapMarker(latitude, longitude);
   }
 
+  handleDirectionsClick() {}
+
   handleMoreInfoClick(e) {
     const selectedTruck = parseInt(e.currentTarget.dataset.truck);
     const truckData = this.state.locationData.find(
@@ -83,6 +86,7 @@ export default class App extends Component {
               handleItemClick={this.handleItemClick}
               handleMoreInfoClick={this.handleMoreInfoClick}
               activeItem={this.state.activeItem}
+              handleDirectionsClick={this.handleDirectionsClick}
             />
             <MapView
               API_KEY={googleAPIKey}

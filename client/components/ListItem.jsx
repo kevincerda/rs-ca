@@ -13,7 +13,7 @@ const ListItem = props => {
         data-id={truck.id}
         data-latitude={truck.latitude}
         data-longitude={truck.longitude}
-        // onClick={props.handleItemClick}
+        onClick={props.handleItemClick}
       >
         <div className="row">
           <div className="col-6">{truck.name}</div>
@@ -24,7 +24,13 @@ const ListItem = props => {
           <div className="col-12">Open until {}</div>
           <div className="col-12">123-456-7890</div>
           <div className="col-6">
-            <button type="button" className="btn btn-dark btn-block">
+            <button
+              type="button"
+              className="btn btn-dark btn-block"
+              data-latitude={truck.latitude}
+              data-longitude={truck.longitude}
+              onClick={props.handleDirectionsClick}
+            >
               Directions
             </button>
           </div>
@@ -43,7 +49,7 @@ const ListItem = props => {
     );
   });
   return (
-    <div className="col-5" id="list">
+    <div className="col-lg-5" id="list">
       <div className="row">
         <div className="col-12">
           <blockquote className="blockquote text-center">
