@@ -11,6 +11,7 @@ export default class App extends Component {
       activeItem: undefined,
       activeItemData: undefined,
       detailsActive: false,
+      weekday: undefined,
       markerLatitude: undefined,
       markerLongitude: undefined,
       locationData: []
@@ -19,10 +20,12 @@ export default class App extends Component {
     this.handleItemClick = this.handleItemClick.bind(this);
     this.handleMoreInfoClick = this.handleMoreInfoClick.bind(this);
     this.setMapMarker = this.setMapMarker.bind(this);
+    this.setWeekDay;
   }
 
   componentDidMount() {
     this.fetchLocationData();
+    this.setWeekDay();
   }
 
   fetchLocationData() {
@@ -59,6 +62,11 @@ export default class App extends Component {
     this.setState({ markerLatitude: latitude, markerLongitude: longitude });
   }
 
+  setWeekDay() {
+    const weekday = new Date().getDay().toString();
+    this.setState({ weekday: weekday });
+  }
+
   render() {
     return (
       <div>
@@ -78,6 +86,7 @@ export default class App extends Component {
               activeItem={this.state.activeItem}
               activeItemData={this.state.activeItemData}
               detailsActive={this.state.detailsActive}
+              weekday={this.state.weekday}
             />
           </div>
         </section>
