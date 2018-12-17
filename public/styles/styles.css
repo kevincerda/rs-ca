@@ -1,8 +1,7 @@
 /*****************************
-/// Default & Reset Styles ///
+///// Responsive Styles /////
 *****************************/
 
-/* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
 }
 
@@ -12,7 +11,6 @@
   }
 }
 
-/* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   #list {
     overflow-y: scroll;
@@ -22,14 +20,12 @@
   }
 }
 
-/* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .container {
     min-width: 1600px;
   }
 }
 
-/* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
 }
 
@@ -47,6 +43,30 @@ body {
 #navbar {
   height: 6vh;
   border-bottom: 1px solid rgb(228, 228, 228) !important;
+}
+
+/*****************************
+////// Text & Headings //////
+*****************************/
+
+.title {
+  font-size: 1.5rem;
+}
+
+.title-secondary {
+  font-size: 1.2rem;
+}
+
+.phone-number {
+  color: #f18f2e;
+}
+
+/*****************************
+//////////// Assets //////////
+*****************************/
+
+.icon {
+  margin-right: 10px;
 }
 
 /*****************************
@@ -83,6 +103,8 @@ body {
   align-content: space-around;
   margin-top: 10px;
   margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   border: 1px solid #dfe0e4;
   border-radius: 2px;
   background-color: #fff;

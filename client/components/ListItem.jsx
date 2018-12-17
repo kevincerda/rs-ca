@@ -1,4 +1,5 @@
 import React from 'react';
+import PhoneIcon from '../../assets/phone-icon.png';
 
 const ListItem = props => {
   const transformedData = props.data.map((truck, index) => {
@@ -16,20 +17,30 @@ const ListItem = props => {
         onClick={props.handleItemClick}
       >
         <div className="row">
-          <div className="col-6">{truck.name}</div>
-          <div className="col-6">0.5 mi</div>
+          <div className="col-10">
+            <span className="title">{truck.name}</span>
+          </div>
+          <div className="col-2 text-right">0.5 mi</div>
           <div className="col-12">
-            {truck.address} {truck.city}, {truck.state} {truck.postal_code}
+            <span className="title-secondary">
+              {truck.address} {truck.city}, {truck.state} {truck.postal_code}
+            </span>
           </div>
           <div className="col-12">Open until {}</div>
-          <div className="col-12">123-456-7890</div>
+          <div className="col-12">
+            <img className="icon" src={PhoneIcon} />
+            <span className="phone-number">123-456-7890</span>
+          </div>
           <div className="col-6">
             <button
               type="button"
               className="btn btn-dark btn-block"
-              data-latitude={truck.latitude}
-              data-longitude={truck.longitude}
-              onClick={props.handleDirectionsClick}
+              onClick={() =>
+                window.open(
+                  props.handleDirectionsClick(truck.latitude, truck.longitude),
+                  '_blank'
+                )
+              }
             >
               Directions
             </button>
