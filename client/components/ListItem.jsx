@@ -1,6 +1,17 @@
 import React from 'react';
 
 const ListItem = props => {
+  const days = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday'
+  ];
+  const day = days[props.weekday];
+  const dayClose = `${day.toLowerCase()}_close`;
   const transformedData = props.data.map(truck => {
     return (
       <div
@@ -25,7 +36,7 @@ const ListItem = props => {
               {truck.address} {truck.city}, {truck.state} {truck.postal_code}
             </span>
           </div>
-          <div className="col-12">Open until {}</div>
+          <div className="col-12">Open until {truck[dayClose]}</div>
           <div className="col-12">
             <img className="icon" src={props.PhoneIcon} />
             <span className="highlight-text">123-456-7890</span>

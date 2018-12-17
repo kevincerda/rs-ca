@@ -18,7 +18,7 @@ class App extends Component {
       activeItem: undefined,
       activeItemData: undefined,
       detailsActive: false,
-      weekday: undefined,
+      weekday: new Date().getDay().toString(),
       markerLatitude: undefined,
       markerLongitude: undefined,
       locationData: [],
@@ -38,7 +38,6 @@ class App extends Component {
 
   componentDidMount() {
     this.fetchLocationData();
-    this.setWeekDay();
   }
 
   fetchLocationData() {
@@ -105,6 +104,7 @@ class App extends Component {
             activeItem={this.state.activeItem}
             handleDirectionsClick={this.handleDirectionsClick}
             PhoneIcon={PhoneIcon}
+            weekday={this.state.weekday}
           />
         );
       case 'MapView':
@@ -162,6 +162,7 @@ class App extends Component {
               activeItem={this.state.activeItem}
               handleDirectionsClick={this.handleDirectionsClick}
               PhoneIcon={PhoneIcon}
+              weekday={this.state.weekday}
             />
             <MapView
               API_KEY={googleAPIKey}
