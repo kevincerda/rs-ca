@@ -43,7 +43,8 @@ const DetailsCard = props => {
                   <HoursTable
                     index={index}
                     day={day}
-                    active={props.weekday === index ? true : null}
+                    active={parseInt(props.weekday) === index ? true : null}
+                    activeItemData={props.activeItemData}
                   />
                 );
               })}
