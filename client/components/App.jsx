@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import NavBar from './NavBar.jsx';
 import ListItem from './ListItem.jsx';
 import MapView from './MapView.jsx';
+import Footer from './Footer.jsx';
 import { googleAPIKey } from '../../credentials.json';
 
 export default class App extends Component {
@@ -103,6 +104,7 @@ export default class App extends Component {
             />
           </div>
         </section>
+        <Footer />
       </div>
     );
   }
