@@ -38,6 +38,16 @@ body {
   min-height: 100%;
 }
 
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
 #navbar {
   height: 6vh;
   border-bottom: 1px solid rgb(228, 228, 228) !important;
@@ -55,7 +65,7 @@ body {
   font-size: 1.2rem;
 }
 
-.phone-number {
+.highlight-text {
   color: #f18f2e;
 }
 

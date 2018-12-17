@@ -28,7 +28,7 @@ const ListItem = props => {
           <div className="col-12">Open until {}</div>
           <div className="col-12">
             <img className="icon" src={props.PhoneIcon} />
-            <span className="phone-number">123-456-7890</span>
+            <span className="highlight-text">123-456-7890</span>
           </div>
           <div className="col-6">
             <button
