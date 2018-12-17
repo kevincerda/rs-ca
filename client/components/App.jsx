@@ -127,7 +127,6 @@ class App extends Component {
   }
 
   render() {
-    <NavBar />;
     if (this.props.isTablet()) {
       return (
         <div>
