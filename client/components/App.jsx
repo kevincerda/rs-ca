@@ -87,8 +87,8 @@ class App extends Component {
     this.setState({ markerLatitude: latitude, markerLongitude: longitude });
   }
 
-  renderComponent() {
-    switch (this.state.activeComponent) {
+  renderComponent(component = this.state.activeComponent) {
+    switch (component) {
       case 'ListView':
         return (
           <ListItem
@@ -104,7 +104,6 @@ class App extends Component {
       case 'MapView':
         return (
           <MapView
-            mapConfig={this.state.mapConfig}
             API_KEY={googleAPIKey}
             markerLongitude={this.state.markerLongitude}
             markerLatitude={this.state.markerLatitude}
@@ -128,12 +127,13 @@ class App extends Component {
   }
 
   render() {
+    <NavBar />;
     if (this.props.isTablet()) {
       return (
         <div>
           <NavBar />
           <section className="container" id="main-view">
-            <div className="row" id="mobile-display">
+            <div className="row" id="default-display">
               {this.renderComponent()}
             </div>
           </section>
@@ -149,28 +149,8 @@ class App extends Component {
         <NavBar />
         <section className="container" id="main-view">
           <div className="row" id="default-display">
-            <ListItem
-              data={this.state.locationData}
-              handleItemClick={this.handleItemClick}
-              handleMoreInfoClick={this.handleMoreInfoClick}
-              activeItem={this.state.activeItem}
-              handleDirectionsClick={this.handleDirectionsClick}
-              PhoneIcon={PhoneIcon}
-              weekday={this.state.weekday}
-            />
-            <MapView
-              API_KEY={googleAPIKey}
-              markerLongitude={this.state.markerLongitude}
-              markerLatitude={this.state.markerLatitude}
-              activeItem={this.state.activeItem}
-              activeItemData={this.state.activeItemData}
-              detailsActive={this.state.detailsActive}
-              handleExitClick={this.handleExitClick}
-              handleDirectionsClick={this.handleDirectionsClick}
-              weekday={this.state.weekday}
-              PhoneIcon={PhoneIcon}
-              DirectionsIcon={DirectionsIcon}
-            />
+            {this.renderComponent('ListView')}
+            {this.renderComponent('MapView')}
           </div>
         </section>
       </div>

@@ -89,8 +89,7 @@ button {
   height: 94vh;
 }
 
-#default-display,
-#mobile-display {
+#default-display {
   height: 100%;
 }
 
