@@ -16,10 +16,10 @@ const ListItem = props => {
         onClick={props.handleItemClick}
       >
         <div className="row">
-          <div className="col-10">
+          <div className="col-md-10">
             <span className="title">{truck.name}</span>
           </div>
-          <div className="col-2 text-right">0.5 mi</div>
+          <div className="col-md-2 text-md-right">0.5 mi</div>
           <div className="col-12">
             <span className="title-secondary">
               {truck.address} {truck.city}, {truck.state} {truck.postal_code}
@@ -30,7 +30,7 @@ const ListItem = props => {
             <img className="icon" src={props.PhoneIcon} />
             <span className="highlight-text">123-456-7890</span>
           </div>
-          <div className="col-6">
+          <div className="col-md-6">
             <button
               type="button"
               className="btn btn-dark btn-block"
@@ -44,7 +44,7 @@ const ListItem = props => {
               Directions
             </button>
           </div>
-          <div className="col-6">
+          <div className="col-md-6">
             <button
               type="button"
               className="btn btn-dark btn-block"

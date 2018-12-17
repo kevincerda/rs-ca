@@ -141,7 +141,7 @@ button {
 }
 
 #popup-wrapper {
-  height: 60vh;
+  min-height: 60vh;
   position: absolute;
   z-index: 2;
   padding: 20px;

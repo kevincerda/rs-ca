@@ -22,18 +22,6 @@ class App extends Component {
       markerLatitude: undefined,
       markerLongitude: undefined,
       locationData: [],
-      mapConfig: {
-        googleURL: 'https://maps.googleapis.com/maps/api/staticmap?',
-        mapSize: 'size=465x650',
-        mapScale: 'scale=2',
-        mapZoom: 'zoom=13',
-        mapFormat: 'format=png',
-        mapType: 'type=roadmap',
-        markerIcon: PhoneIcon,
-        markerLatitude: undefined,
-        markerLongitude: undefined,
-        API_KEY: googleAPIKey
-      },
       activeComponent: 'ListView',
       activeButtonMobile: 'ListView'
     };
@@ -122,6 +110,7 @@ class App extends Component {
       case 'MapView':
         return (
           <MapView
+            mapConfig={this.state.mapConfig}
             API_KEY={googleAPIKey}
             markerLongitude={this.state.markerLongitude}
             markerLatitude={this.state.markerLatitude}

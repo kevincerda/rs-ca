@@ -13,9 +13,9 @@ const DetailsCard = props => {
   ];
 
   return props.detailsActive ? (
-    <div className="col-8" id="popup-wrapper">
+    <div className="col-md-8 col-sm-10" id="popup-wrapper">
       <div className="row">
-        <div className="col-1 offset-11 ">
+        <div className="col-2 offset-10 ">
           <button className="btn-mobile" onClick={props.handleExitClick}>
             <span className="title text-right">X</span>
           </button>
@@ -32,11 +32,11 @@ const DetailsCard = props => {
         </div>
         <div className="col-12">
           <div className="row">
-            <div className="col-6">
+            <div className="col-md-6">
               <img className="icon" src={props.PhoneIcon} />
               <span className="highlight-text">123-456-7890</span>
             </div>
-            <div className="col-6">
+            <div className="col-md-6">
               <span className="highlight-text">
                 <img className="icon" src={props.DirectionsIcon} />
                 <a
@@ -58,27 +58,29 @@ const DetailsCard = props => {
           </div>
         </div>
         <div className="col-12">
-          <table className="table table-borderless">
-            <thead>
-              <tr>
-                <th scope="col-2" />
-                <th scope="col" />
-              </tr>
-            </thead>
-            <tbody>
-              {days.map((day, index) => {
-                return (
-                  <HoursTable
-                    index={index}
-                    day={day}
-                    key={index}
-                    active={parseInt(props.weekday) === index ? true : null}
-                    activeItemData={props.activeItemData}
-                  />
-                );
-              })}
-            </tbody>
-          </table>
+          <div className="table-responsive">
+            <table className="table table-borderless">
+              <thead>
+                <tr>
+                  <th scope="col-2" />
+                  <th scope="col" />
+                </tr>
+              </thead>
+              <tbody>
+                {days.map((day, index) => {
+                  return (
+                    <HoursTable
+                      index={index}
+                      day={day}
+                      key={index}
+                      active={parseInt(props.weekday) === index ? true : null}
+                      activeItemData={props.activeItemData}
+                    />
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
