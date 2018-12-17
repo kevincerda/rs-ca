@@ -36,6 +36,14 @@ module.exports = {
           name: '[path][name].[ext]',
           publicPath: '/'
         }
+      },
+      {
+        test: /\.(eot|ttf|woff2?|otf|svg)$/,
+        loaders: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+          outputPath: '/fa-icons'
+        }
       }
     ]
   }
