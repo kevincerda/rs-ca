@@ -1,11 +1,16 @@
+// Dependencies
 import React, { Component } from 'react';
+import { withGetScreen } from 'react-getscreen';
+import { googleAPIKey } from '../../credentials.json';
+// Components
 import NavBar from './NavBar.jsx';
 import ListItem from './ListItem.jsx';
 import MapView from './MapView.jsx';
 import Footer from './Footer.jsx';
-import { googleAPIKey } from '../../credentials.json';
+// Assets
+import PhoneIcon from '../../assets/phone-icon.png';
 
-export default class App extends Component {
+class App extends Component {
   constructor() {
     super();
     this.state = {
@@ -15,7 +20,20 @@ export default class App extends Component {
       weekday: undefined,
       markerLatitude: undefined,
       markerLongitude: undefined,
-      locationData: []
+      locationData: [],
+      mapConfig: {
+        googleURL: 'https://maps.googleapis.com/maps/api/staticmap?',
+        mapSize: 'size=465x650',
+        mapScale: 'scale=2',
+        mapZoom: 'zoom=13',
+        mapFormat: 'format=png',
+        mapType: 'type=roadmap',
+        markerIcon: PhoneIcon,
+        markerLatitude: undefined,
+        markerLongitude: undefined,
+        API_KEY: googleAPIKey
+      },
+      activeComponent: 'ListView'
     };
     this.fetchLocationData = this.fetchLocationData.bind(this);
     this.handleItemClick = this.handleItemClick.bind(this);
@@ -23,7 +41,9 @@ export default class App extends Component {
     this.handleMoreInfoClick = this.handleMoreInfoClick.bind(this);
     this.handleExitClick = this.handleExitClick.bind(this);
     this.setMapMarker = this.setMapMarker.bind(this);
-    this.setWeekDay;
+    this.setWeekDay = this.setWeekDay.bind(this);
+    this.renderComponent = this.renderComponent.bind(this);
+    this.handleMobileButtonToggle = this.handleMobileButtonToggle.bind(this);
   }
 
   componentDidMount() {
@@ -79,18 +99,67 @@ export default class App extends Component {
     this.setState({ weekday: weekday });
   }
 
+  renderComponent() {
+    switch (this.state.activeComponent) {
+      case 'ListView':
+        return (
+          <ListItem
+            data={this.state.locationData}
+            handleItemClick={this.handleItemClick}
+            handleMoreInfoClick={this.handleMoreInfoClick}
+            activeItem={this.state.activeItem}
+            handleDirectionsClick={this.handleDirectionsClick}
+            PhoneIcon={PhoneIcon}
+          />
+        );
+      case 'MapView':
+        return (
+          <MapView
+            API_KEY={googleAPIKey}
+            markerLongitude={this.state.markerLongitude}
+            markerLatitude={this.state.markerLatitude}
+            activeItem={this.state.activeItem}
+            activeItemData={this.state.activeItemData}
+            detailsActive={this.state.detailsActive}
+            handleExitClick={this.handleExitClick}
+            weekday={this.state.weekday}
+          />
+        );
+    }
+  }
+
+  handleMobileButtonToggle(e) {
+    e.preventDefault();
+    const view = e.currentTarget.dataset.view;
+    this.setState({ activeComponent: view });
+  }
+
   render() {
+    if (this.props.isTablet()) {
+      return (
+        <div>
+          <NavBar />
+          <section className="container" id="main-view">
+            <div className="row" id="mobile-display">
+              {this.renderComponent()}
+            </div>
+          </section>
+          <Footer handleMobileButtonToggle={this.handleMobileButtonToggle} />
+        </div>
+      );
+    }
     return (
       <div>
         <NavBar />
         <section className="container" id="main-view">
-          <div className="row" id="columns">
+          <div className="row" id="default-display">
             <ListItem
               data={this.state.locationData}
               handleItemClick={this.handleItemClick}
               handleMoreInfoClick={this.handleMoreInfoClick}
               activeItem={this.state.activeItem}
               handleDirectionsClick={this.handleDirectionsClick}
+              PhoneIcon={PhoneIcon}
             />
             <MapView
               API_KEY={googleAPIKey}
@@ -104,8 +173,12 @@ export default class App extends Component {
             />
           </div>
         </section>
-        <Footer />
       </div>
     );
   }
 }
+
+export default withGetScreen(App, {
+  tabletLimit: 769,
+  shouldListenOnResize: true
+});

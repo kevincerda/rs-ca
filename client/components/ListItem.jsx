@@ -1,5 +1,4 @@
 import React from 'react';
-import PhoneIcon from '../../assets/phone-icon.png';
 
 const ListItem = props => {
   const transformedData = props.data.map((truck, index) => {
@@ -28,7 +27,7 @@ const ListItem = props => {
           </div>
           <div className="col-12">Open until {}</div>
           <div className="col-12">
-            <img className="icon" src={PhoneIcon} />
+            <img className="icon" src={props.PhoneIcon} />
             <span className="phone-number">123-456-7890</span>
           </div>
           <div className="col-6">

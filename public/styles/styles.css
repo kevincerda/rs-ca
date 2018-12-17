@@ -8,6 +8,7 @@
 @media (max-width: 768px) {
   #main-view {
     overflow-y: scroll;
+    padding-bottom: 50px;
   }
 }
 
@@ -15,18 +16,15 @@
   #list {
     overflow-y: scroll;
   }
-  #main-view {
-    padding-bottom: 50px;
-  }
 }
 
 @media (min-width: 992px) {
+}
+
+@media (min-width: 1600px) {
   .container {
     min-width: 1600px;
   }
-}
-
-@media (min-width: 1200px) {
 }
 
 /*****************************
@@ -72,13 +70,12 @@ body {
 /*****************************
 //////// VIEW STYLES  ////////
 *****************************/
-
 #main-view {
   height: 94vh;
-  min-height: 94vh;
 }
 
-#columns {
+#default-display,
+#mobile-display {
   height: 100%;
 }
 
@@ -116,7 +113,6 @@ body {
 }
 
 #pop-up {
-  height: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;

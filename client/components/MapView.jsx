@@ -5,7 +5,7 @@ import DetailsCard from './DetailsCard.jsx';
 
 const MapView = props => {
   return (
-    <div className="col-7 d-none d-md-block" id="map">
+    <div className="col-7 d-none d-lg-block" id="map">
       <div className="row" id="pop-up">
         <DetailsCard
           detailsActive={props.detailsActive}
@@ -28,7 +28,7 @@ const MapView = props => {
               API_KEY={props.API_KEY}
             />
           ) : (
-            'Click a location to load a map'
+            <div id="pop-up">Click a location card to load a map</div>
           )}
         </div>
       </div>
