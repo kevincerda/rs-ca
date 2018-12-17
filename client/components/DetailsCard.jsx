@@ -13,7 +13,7 @@ const DetailsCard = props => {
   ];
 
   return props.detailsActive ? (
-    <div className="col-8 offset-2" id="popup-wrapper">
+    <div className="col-8" id="popup-wrapper">
       <div className="row">
         <div className="col-12">
           <button onClick={props.handleExitClick}>X</button>
