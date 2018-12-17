@@ -12,6 +12,9 @@ const MapView = props => {
           activeItemData={props.activeItemData}
           weekday={props.weekday}
           handleExitClick={props.handleExitClick}
+          PhoneIcon={props.PhoneIcon}
+          DirectionsIcon={props.DirectionsIcon}
+          handleDirectionsClick={props.handleDirectionsClick}
         />
         <div className="col-12">
           {props.markerLongitude && props.markerLatitude ? (
