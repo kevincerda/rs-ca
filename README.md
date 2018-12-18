@@ -10,7 +10,7 @@
 
 ```
 > Clone Repo
-$ git clone https://github.com/kevincerda/rioseo-code-assessment.git
+$ git clone https://github.com/kevincerda/rs-ca.git
 
 > CD Into Directory
 
