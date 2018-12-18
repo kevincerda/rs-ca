@@ -8,7 +8,7 @@
 
 ## Getting Started
 
-** A Google API Key with Static Map & Routes enabled is needed **
+** A Google API Key with Static Map & Routes enabled is required **
 
 ```
 > Clone Repo
