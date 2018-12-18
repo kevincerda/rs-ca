@@ -8,11 +8,15 @@
 
 ## Getting Started
 
+** A Google API Key with Static Map & Routes enabled is needed **
+
 ```
 > Clone Repo
 $ git clone https://github.com/kevincerda/rs-ca.git
 
 > CD Into Directory
+
+> Insert your Google API key inside the credentials.json file
 
 > Install dependencies
 $ npm install
