@@ -26,3 +26,25 @@ $ npm run build
 > View localhost:3000
 
 ```
+
+## Screenshots
+
+### Initial load screen
+
+![alt text](product-screenshots/default.png)
+
+### Item clicked & map render
+
+![alt text](product-screenshots/item-clicked.png)
+
+### Details pop up
+
+![alt text](product-screenshots/more-info-clicked.png)
+
+### Responsive initial load screen
+
+![alt text](product-screenshots/responsive-default.png)
+
+### Details page
+
+![alt text](product-screenshots/responsive-details.png)
