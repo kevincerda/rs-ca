@@ -1,0 +1,169 @@
+/*****************************
+///// Responsive Styles /////
+*****************************/
+
+@media (max-width: 768px) {
+  #main-view {
+    overflow-y: scroll;
+    padding-bottom: 50px;
+  }
+}
+
+@media (min-width: 768px) {
+  #list {
+    overflow-y: scroll;
+  }
+}
+
+@media (min-width: 1600px) {
+  .container {
+    min-width: 1600px;
+  }
+}
+
+/*****************************
+/// Default & Reset Styles ///
+*****************************/
+
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
+
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+#navbar {
+  height: 6vh;
+  border-bottom: 1px solid rgb(228, 228, 228) !important;
+}
+
+/*****************************
+////// Text & Headings //////
+*****************************/
+
+.title {
+  font-size: 1.5rem;
+}
+
+.title-secondary {
+  font-size: 1.2rem;
+}
+
+.highlight-text {
+  color: #f18f2e;
+}
+
+/*****************************
+//////////// Assets //////////
+*****************************/
+
+.icon {
+  margin-right: 10px;
+}
+
+.btn-mobile {
+  height: 100%;
+  width: 100%;
+}
+
+/*****************************
+//////// View Styles  ////////
+*****************************/
+#main-view {
+  height: 94vh;
+}
+
+#default-display {
+  height: 100%;
+}
+
+#img-placeholder {
+  min-height: 15rem;
+  background-color: #e3e3e3;
+  margin-bottom: 15px;
+}
+
+/*****************************
+/////// Result Styles  //////
+*****************************/
+
+#map {
+  padding: 0 !important;
+  background-color: #e3e3e3;
+  overflow: hidden;
+}
+
+#list {
+  height: 100%;
+  padding: 25px;
+}
+
+.result-item {
+  height: 300px;
+  display: flex;
+  align-content: space-around;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 1px solid #dfe0e4;
+  border-radius: 2px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.active-item {
+  background-color: #eeefef !important;
+}
+
+#pop-up {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#popup-wrapper {
+  min-height: 60vh;
+  position: absolute;
+  z-index: 2;
+  padding: 20px;
+  border-radius: 2px;
+  background-color: #fff;
+}
+
+/*****************************
+/////// Footer Styles  //////
+*****************************/
+
+.footer {
+  text-align: center;
+  min-height: 50px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  line-height: 60px;
+  border-top: 1px solid rgb(228, 228, 228) !important;
+  cursor: pointer;
+}
+
+.footer-tab {
+  color: #f18f2e;
+  background-color: #fff;
+}
+
+.tab-active {
+  color: #fff !important;
+  background-color: #f18f2e !important;
+}
