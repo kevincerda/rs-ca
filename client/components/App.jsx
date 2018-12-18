@@ -4,7 +4,7 @@ import { withGetScreen } from 'react-getscreen';
 import { googleAPIKey } from '../../credentials.json';
 // Components
 import NavBar from './NavBar.jsx';
-import ListItem from './ListItem.jsx';
+import ListView from './ListView.jsx';
 import MapView from './MapView.jsx';
 import Footer from './Footer.jsx';
 // Assets
@@ -91,7 +91,7 @@ class App extends Component {
     switch (component) {
       case 'ListView':
         return (
-          <ListItem
+          <ListView
             data={this.state.locationData}
             handleItemClick={this.handleItemClick}
             handleMoreInfoClick={this.handleMoreInfoClick}
